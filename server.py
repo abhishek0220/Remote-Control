@@ -59,6 +59,17 @@ async def websocket_endpoint(websocket):
                     f'Client {client_id}[{mirror_mode}] not connected'
                 )
         except WebSocketDisconnect:
+            if(client_mode == 'client'):
+                if(client_id in activesockets['controller']):
+                    message = {
+                        'event': 'disconnect'
+                    }
+                    mirror_socket = activesockets[mirror_mode][client_id]
+                    await mirror_socket.send_text(json.dumps(message))
+                    await mirror_socket.close()
+                    del activesockets[mirror_mode][client_id]
+                    logger.info(f'Controller Disconnected: {client_id}')
+                    return
             break
 
     del activesockets[client_mode][client_id]
