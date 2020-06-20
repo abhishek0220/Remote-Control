@@ -46,6 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const disconnectButton = document.getElementById('disconnect_button')
     disconnectButton.addEventListener('click', () => disconnectSocket(socket))
     
-    const beepButton = document.getElementById('open_google')
-    beepButton.addEventListener('click', () => socket.send(JSON.stringify({ event: 'opengoogle' })))
+    const webButton = document.getElementById('open_google')
+    webButton.addEventListener('click', () => socket.send(JSON.stringify({ event: 'opengoogle' })))
+
+    const lockscreen = document.getElementById('lock_screen')
+    lockscreen.addEventListener('click', () => socket.send(JSON.stringify({ event: 'lockscreen' })))
 })

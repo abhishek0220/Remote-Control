@@ -13,4 +13,4 @@ Start client on pc
 ```bash
 python client.py <clientname>
 ```
-Open Controller.html and enter <clientname> by which you started client and click connect and use
+Open Controller.html and enter clientname by which you started client and click connect and use

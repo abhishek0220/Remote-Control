@@ -5,6 +5,7 @@ import psutil
 import sys
 import websockets
 import webbrowser 
+import os
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
@@ -30,6 +31,11 @@ async def consumer(message):
     if (json_message['event'] == 'opengoogle'):
         webbrowser.open('http://www.google.com') 
         print("opened google.com")
+    elif(json_message['event'] == 'lockscreen'):
+        os.system('rundll32.exe user32.dll,LockWorkStation')
+        print("System Locked")
+    else:
+        print("invalid Command")
 
 
 async def consumer_handler(websocket):
