@@ -40,8 +40,6 @@ async def websocket_endpoint(websocket):
                     'event': 'disconnect'
                 }
                 await websocket.send_text(json.dumps(message))
-                await websocket.close()
-                del activesockets[client_mode][client_id]
                 logger.info(f'Client not present: {client_id}')
                 return
         try:
@@ -66,15 +64,10 @@ async def websocket_endpoint(websocket):
                     }
                     mirror_socket = activesockets[mirror_mode][client_id]
                     await mirror_socket.send_text(json.dumps(message))
-                    await mirror_socket.close()
-                    del activesockets[mirror_mode][client_id]
-                    logger.info(f'Controller Disconnected: {client_id}')
-                    return
             break
-
     del activesockets[client_mode][client_id]
     await websocket.close()
-    logger.info(f'Client disconnected: {client_string}')
+    logger.info(f'Disconnected: {client_string}')
 
 if __name__ == '__main__':
     uvicorn.run(app, host='0.0.0.0', port=8000)

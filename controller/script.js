@@ -15,6 +15,7 @@ const createSocket = (clientId) => {
         if (message.event === 'disconnect') {
             document.getElementById('status').textContent = 'Disconnected'
             document.getElementById('value').textContent = ""
+            socket.close()
         }
         if (message.event === 'cpu') {
             document.getElementById('value').textContent = message.value
