@@ -6,11 +6,17 @@ import sys
 import websockets
 import webbrowser 
 import os
+from ctypes import cast, POINTER
+from comtypes import CLSCTX_ALL
+from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
+devices = AudioUtilities.GetSpeakers()
+interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+volume = cast(interface, POINTER(IAudioEndpointVolume))
 
 async def cpu_usage_reporter(websocket):
     psutil.cpu_percent()
@@ -34,6 +40,17 @@ async def consumer(message):
     elif(json_message['event'] == 'lockscreen'):
         os.system('rundll32.exe user32.dll,LockWorkStation')
         logger.debug(f"System Locked")
+    elif(json_message['event'] == 'vol'):
+        if(json_message['type'] == 'minus'):
+            volume.VolumeStepDown(None)
+            logger.debug(f"Vol -")
+        elif(json_message['type'] == 'plus'):
+            volume.VolumeStepUp(None)
+            logger.debug(f"Vol +")
+        elif(json_message['type'] == 'mu'):
+            state = volume.GetMute()
+            volume.SetMute(1-state, None)
+            logger.debug(f"Vol {state}")
     else:
         logger.debug(f"Invalid event")
 
