@@ -28,14 +28,14 @@ async def consumer(message):
     json_message = json.loads(message)
     logger.debug(f'Server message received: {json_message}')
 
-    if (json_message['event'] == 'opengoogle'):
-        webbrowser.open('http://www.google.com') 
-        print("opened google.com")
+    if (json_message['event'] == 'openweb'):
+        webbrowser.open(json_message['site']) 
+        logger.debug(f"opened : {json_message['site']}")
     elif(json_message['event'] == 'lockscreen'):
         os.system('rundll32.exe user32.dll,LockWorkStation')
-        print("System Locked")
+        logger.debug(f"System Locked")
     else:
-        print("invalid Command")
+        logger.debug(f"Invalid event")
 
 
 async def consumer_handler(websocket):

@@ -31,6 +31,13 @@ const disconnectSocket = (socket) => {
     document.getElementById('status').textContent = `Disconnected`
 }
 
+const webopen = (socket) => {
+    var k = document.getElementById('url').value
+    if(k.length > 0){
+        socket.send(JSON.stringify({ event: 'openweb', site:k }))
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     let socket
 
@@ -45,9 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const disconnectButton = document.getElementById('disconnect_button')
     disconnectButton.addEventListener('click', () => disconnectSocket(socket))
-    
-    const webButton = document.getElementById('open_google')
-    webButton.addEventListener('click', () => socket.send(JSON.stringify({ event: 'opengoogle' })))
+
+    const webButton = document.getElementById('open_web')
+    webButton.addEventListener('click', () => webopen(socket))
 
     const lockscreen = document.getElementById('lock_screen')
     lockscreen.addEventListener('click', () => socket.send(JSON.stringify({ event: 'lockscreen' })))
