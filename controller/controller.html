@@ -1,22 +1,144 @@
-<html>
-    <head>
-        <script src='script.js'></script>
-    </head>
-    <body>
-        <h1>Status: <span id="status">Disconnected</span></h1>
-        <h1>Client ID: <span id="client_id">?</span></h1>
-        <h1>CPU usage: <span id="value">?</span>%</h1>        
-        <form id="connect_form">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <script src='script.js'></script>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Controller</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Remote Controller</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#functionality">Functionality</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1>Welcome to Desktop <i class="material-icons" style="font-size:40px;color:black;">important_devices</i> Controller</h1>
+      <p class="lead">A simple way to control your desktop from your mobile or from anywhere through WWW.</p>
+    </div>
+  </header>
+
+  <section id="about" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>About this Software</h2><hr><br>
+          <p class="lead">Requirements are always key to innovation. Always humans wanted to control things from there comfort zone and due to this ongoing epidemic, people started working from home. This tool will help them to control there desktop through there phone or tab using internet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="functionality">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2><strong>Functionality</strong></h2><hr><br>
+          <h3 style="color:Tomato;">Status: <span id="status"><b>Disconnected</b></span></h3>
+          <h3>Client ID: <span id="client_id">?</span></h3>
+          <h3>CPU usage: <span id="value">?</span>%</h3><br><hr><br>
+          <h4>To connect to the server, Enter your client_id: </h4>                <form id="connect_form">
             <input type="text" id="client_id_input" placeholder="client_id" />
-            <button type="submit">Connect</button>
-            <button type="button" id="disconnect_button">Disconnect</button>
-        </form>
-        <hr>
-        <form>
+            <button class="button" type="submit">Connect</button>
+            <button class="button2" type="button" id="disconnect_button">Disconnect</button>
+          </form>
+          <br>
+          <br>
+          <h4> To open any website in your desktop, Enter the url: </h4>
+          <form>
             <input type="text" id="url" placeholder="website" required/>
-            <button type="button" id="open_web">Open</button>
-        </form>
-        <h1><button type="button" id="lock_screen">Lock Screen</button></h1>
-        <h1><button type="button" id="vol_minus">VOL-</button><button type="button" id="vol_plus">VOL+</button><button type="button" id="vol_mu">MUTE/UNMUTE</button></h1>
-    </body>
+            <button class="button" type="button" id="open_web">Open</button>
+          </form>
+          <br><br>
+          <h4> To lock the screen of your desktop:
+            <button class="button2" type="button" id="lock_screen">Lock Screen</button></h4>
+          <br><br>
+
+          <h4> To control the volume of your desktop:
+            <button class="button" type="button" id="vol_minus">VOL-</button>
+              <button class="button2" type="button" id="vol_plus">VOL+</button>
+              <button class="button" type="button" id="vol_mu">MUTE/UNMUTE</button></h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Services we Offer</h2><hr><br>
+          <p class="lead">Currently, we are offering very limited number of features but the list will surely grow in future.</p>
+          <ul>
+            <li style=";font-size:20px">To check the status of your connection
+            	<i class="material-icons" style="font-size:18px;color:black;">analytics</i></li>
+            <li style=";font-size:20px">CPU usage
+            	<i class="material-icons" style="font-size:18px;color:black;">assessment</i></li>
+            <li style=";font-size:20px">Open any link in your desktop
+            	<i class="material-icons" style="font-size:18px;color:black;">cast</i></li>
+            <li style=";font-size:20px">Lock Screen
+            	<i class="material-icons" style="font-size:15px;color:black;">lock</i></li>
+            <li style=";font-size:20px">To control device volume
+            	<i class="material-icons" style="font-size:18px;color:black;">volume_down</i>
+            	<i class="material-icons" style="font-size:18px;color:black;">volume_up</i></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Made with &hearts; by TLE</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+
+</body>
+
 </html>
