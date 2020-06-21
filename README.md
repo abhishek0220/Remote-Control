@@ -1,16 +1,13 @@
 # Remote-Control
-Steps to run locally
+Steps to run
 
 Install libraries
 ```bash
 pip install -r requirements.txt
 ```
-Start the server:
-```bash
-python server.py
-```
+
 Start client on pc
 ```bash
 python client.py <clientname>
 ```
-Open Controller.html and enter clientname by which you started client and click connect and use
+Open http://desktopcontrol.azurewebsites.net and enter clientname by which you started client and click connect and use
