@@ -12,7 +12,9 @@ const createSocket = (clientId) => {
         document.getElementById('stat').style.color = 'green'
     }
     socket.onmessage = (event) => {
+        
         const message = JSON.parse(event.data)
+        console.log(message.event)
         if (message.event === 'disconnect') {
             socket.close()
             document.getElementById('stat').style.color = 'red'
@@ -21,6 +23,10 @@ const createSocket = (clientId) => {
         }
         if (message.event === 'cpu') {
             document.getElementById('value').textContent = message.value
+        }
+        if (message.event === 'notes') {
+            console.log(message.value)
+            $("textarea#notestxt").val(message.value)
         }
     }
 
@@ -39,6 +45,14 @@ const webopen = (socket) => {
     var k = document.getElementById('url').value
     if(k.length > 0){
         socket.send(JSON.stringify({ event: 'openweb', site:k }))
+    }
+}
+
+const sendnotes = (socket) => {
+    var k = $("textarea#notestxt").val()
+    console.log(k)
+    if(k.length > 0){
+        socket.send(JSON.stringify({ event: 'notes_up', value:k }))
     }
 }
 
@@ -71,4 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const volmu = document.getElementById('vol_mu')
     volmu.addEventListener('click', () => socket.send(JSON.stringify({ event: 'vol', type:'mu' })))
+
+    const notes = document.getElementById('notes_fetch')
+    notes.addEventListener('click', () => socket.send(JSON.stringify({ event: 'notesf'})))
+
+    const notesup = document.getElementById('note_up')
+    notesup.addEventListener('click', () => sendnotes(socket))
 })

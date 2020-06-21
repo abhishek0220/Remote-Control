@@ -98,12 +98,25 @@
               <i class="material-icons">lock</i>Lock Screen
             </button>
           </h6>
-          <h6 class="labeltxt">
+          <h6 class="labeltxt" style="margin-bottom: 50px;">
             To control the volume of your desktop:<br><br>
             <button class="waves-effect waves-light btn blue accent-3" type="button" id="vol_minus"><i class="material-icons">volume_down</i></button>
             <button class="waves-effect waves-light btn blue accent-3" type="button" id="vol_plus"><i class="material-icons">volume_up</i></button>
             <button class="waves-effect waves-light btn blue accent-3" type="button" id="vol_mu">MUTE/UNMUTE</button>
           </h6>
+          <h6 class="labeltxt">
+            Notes:
+          </h6>
+          <form onsubmit="return false;">
+            <textarea id="notestxt" style="height: 100px;"><p></p></textarea>
+            <button class="waves-effect waves-light btn blue accent-4" type="button" id="notes_fetch">
+              Refresh
+            </button>
+            <button class="waves-effect waves-light btn blue accent-4" type="button" id="note_up">
+              Update Notes
+            </button>
+          </form>
+          <br><br>
         </div>
       </div>
     </div>

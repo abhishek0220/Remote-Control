@@ -30,7 +30,7 @@ async def cpu_usage_reporter(websocket):
         logger.debug(f'Sent message to server: {message}')
 
 
-async def consumer(message):
+async def consumer(message, websocket):
     json_message = json.loads(message)
     logger.debug(f'Server message received: {json_message}')
 
@@ -51,13 +51,31 @@ async def consumer(message):
             state = volume.GetMute()
             volume.SetMute(1-state, None)
             logger.debug(f"Vol {state}")
+    elif(json_message['event'] == 'notesf'):
+        try:
+            file = open("notes.txt", 'r')
+            txt = file.read()
+        except IOError:
+            file = open("notes.txt", 'w')
+            txt = ""
+        file.close()
+        message = {
+            'event': 'notes',
+            'value': txt,
+        }
+        await websocket.send(json.dumps(message))
+        logger.debug(f"Sent File")
+    elif(json_message['event'] == 'notes_up'):
+        file = open("notes.txt", 'w')
+        file.write(json_message['value'])
+        logger.debug(f"File Updated")
     else:
         logger.debug(f"Invalid event")
 
 
 async def consumer_handler(websocket):
     async for message in websocket:
-        await consumer(message)
+        await consumer(message, websocket)
 
 
 async def handler(url, client_id):

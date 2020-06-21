@@ -42,7 +42,6 @@ async def websocket_endpoint(websocket):
                 }
                 await websocket.send_text(json.dumps(message))
                 logger.info(f'Client not present: {client_id}')
-                return
         try:
             # Wait for a message from the client
             message = await receive_json(websocket)
