@@ -9,10 +9,13 @@ const createSocket = (clientId) => {
         }))
         document.getElementById('status').textContent = `Connected`
         document.getElementById('client_id').textContent = clientId
+        document.getElementById('stat').style.color = 'green'
     }
     socket.onmessage = (event) => {
         const message = JSON.parse(event.data)
         if (message.event === 'disconnect') {
+            socket.close()
+            document.getElementById('stat').style.color = 'red'
             document.getElementById('status').textContent = 'Disconnected'
             document.getElementById('value').textContent = ""
         }
@@ -28,6 +31,7 @@ const createSocket = (clientId) => {
 
 const disconnectSocket = (socket) => {
     socket.close()
+    document.getElementById('stat').style.color = 'red'
     document.getElementById('status').textContent = `Disconnected`
 }
 
