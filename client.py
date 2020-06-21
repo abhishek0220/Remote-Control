@@ -22,9 +22,12 @@ async def cpu_usage_reporter(websocket):
     psutil.cpu_percent()
     while (True):
         await asyncio.sleep(1)
+        battery = psutil.sensors_battery()
         message = {
             'event': 'cpu',
             'value': psutil.cpu_percent(),
+            'charging' : battery.power_plugged,
+            'battery' : battery.percent
         }
         await websocket.send(json.dumps(message))
         logger.debug(f'Sent message to server: {message}')

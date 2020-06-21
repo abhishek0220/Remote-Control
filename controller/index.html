@@ -68,7 +68,8 @@
             <div class="col s12 m6">
               <h5 id="stat" style="color:red;">Status: <span id="status"><b>Disconnected</b></span></h5>
               <h5>Client ID: <span id="client_id">?</span></h5>
-              <h5>CPU usage: <span id="value">?</span>%</h5><br><br>
+              <h5>CPU usage: <span id="value">?</span>%</h5>
+              <h5>Battery: <span id="batt">?</span>%</h5><br><br>
             </div>
             <div class="col s12 m6">
               <h5>Enter your client_id: </h5>
@@ -108,7 +109,7 @@
             Notes:
           </h6>
           <form onsubmit="return false;">
-            <textarea id="notestxt" style="height: 100px;"><p></p></textarea>
+            <textarea id="notestxt" style="height: 100px;"></textarea>
             <button class="waves-effect waves-light btn blue accent-4" type="button" id="notes_fetch">
               Refresh
             </button>
@@ -128,7 +129,7 @@
       <div class="container">
         <div class="row center">
           <h5 class="header col s12 light">The ultimate promise of technology is to make us master of a world that we command by the push of a button.<br>
-          ss– Volker Grassmuck</h5>
+          – Volker Grassmuck</h5>
         </div>
       </div>
     </div>
@@ -151,6 +152,8 @@
             <i class="material-icons" style="font-size:18px;color:black;">analytics</i></li>
           <li style="font-size:20px; list-style-type: disc;">CPU usage
             <i class="material-icons" style="font-size:18px;color:black;">assessment</i></li>
+            <li style="font-size:20px; list-style-type: disc;">Battery Info
+              <i class="material-icons" style="font-size:18px;color:black;">battery_charging_full</i></li>
           <li style="font-size:20px; list-style-type: disc;">Open any link in your desktop
             <i class="material-icons" style="font-size:18px;color:black;">cast</i></li>
           <li style="font-size:20px; list-style-type: disc;">Lock Screen
@@ -158,6 +161,8 @@
           <li style="font-size:20px; list-style-type: disc;">To control device volume
             <i class="material-icons" style="font-size:18px;color:black;">volume_down</i>
             <i class="material-icons" style="font-size:18px;color:black;">volume_up</i></li>
+          <li style="font-size:20px; list-style-type: disc;">Synced Notes
+            <i class="material-icons" style="font-size:18px;color:black;">speaker_notes</i></li>
         </ul>
       </div> 
 

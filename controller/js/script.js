@@ -14,18 +14,22 @@ const createSocket = (clientId) => {
     socket.onmessage = (event) => {
         
         const message = JSON.parse(event.data)
-        console.log(message.event)
         if (message.event === 'disconnect') {
             socket.close()
             document.getElementById('stat').style.color = 'red'
             document.getElementById('status').textContent = 'Disconnected'
             document.getElementById('value').textContent = ""
+            document.getElementById('batt').textContent = ""
         }
         if (message.event === 'cpu') {
             document.getElementById('value').textContent = message.value
+            var kj = " (Charging)"
+            if(message.charging == false){
+                kj = ""
+            }
+            document.getElementById('batt').textContent = message.battery + kj
         }
         if (message.event === 'notes') {
-            console.log(message.value)
             $("textarea#notestxt").val(message.value)
         }
     }
@@ -50,7 +54,6 @@ const webopen = (socket) => {
 
 const sendnotes = (socket) => {
     var k = $("textarea#notestxt").val()
-    console.log(k)
     if(k.length > 0){
         socket.send(JSON.stringify({ event: 'notes_up', value:k }))
     }
