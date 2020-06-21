@@ -58,4 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const lockscreen = document.getElementById('lock_screen')
     lockscreen.addEventListener('click', () => socket.send(JSON.stringify({ event: 'lockscreen' })))
+
+    const volp = document.getElementById('vol_plus')
+    volp.addEventListener('click', () => socket.send(JSON.stringify({ event: 'vol', type:'plus' })))
+
+    const volm = document.getElementById('vol_minus')
+    volm.addEventListener('click', () => socket.send(JSON.stringify({ event: 'vol', type:'minus' })))
+
+    const volmu = document.getElementById('vol_mu')
+    volmu.addEventListener('click', () => socket.send(JSON.stringify({ event: 'vol', type:'mu' })))
 })
