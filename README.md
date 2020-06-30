@@ -1,4 +1,7 @@
 # Remote-Control
+
+<img src = "https://github.com/abhishek0220/Remote-Control/blob/master/img/Home.jpg">
+
 Today, all you need to do is push a button on the remote control to flip back and forth between hundreds of channels. Many of the things you use every day can probably be controlled remotely. From garage door openers and toy cars to lights and stereo equipment, it's easier than ever to control things from afar.
 The growing laziness and curiosity in humans to simplify tasks (automation) have been the cause of many new inventions.
 Amid this Covid-19 pandemic, people are ultimately forced to work from home, and working along with family is a tough task. This software or tool will help them to control their desktop from any location.
@@ -8,6 +11,10 @@ Example 1 - A person working from home suddenly goes to the nearby market to bri
 Example 2 - If we want to send some links from mobile to laptop, then we have to use either Mail or WhatsApp, but we can simplify this by using the desktop controller.
 
 Example 3 - other features such as volume control, note saving, CPU, and battery statistics are also available.
+
+## Functionality
+
+<img src = "https://github.com/abhishek0220/Remote-Control/blob/master/img/func.jpg">
 
 ## Steps to run locally
 
