@@ -1,5 +1,5 @@
 const createSocket = (clientId) => {
-    const socket = new WebSocket("ws://serverabhis.herokuapp.com/socket");
+    const socket = new WebSocket("ws://localhost:5000/socket");
     
     socket.onopen = (event) => {
         socket.send(JSON.stringify({
