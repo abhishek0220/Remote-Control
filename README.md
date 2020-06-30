@@ -9,15 +9,22 @@ Example 2 - If we want to send some links from mobile to laptop, then we have to
 
 Example 3 - other features such as volume control, note saving, CPU, and battery statistics are also available.
 
-## Steps to run
+## Steps to run locally
 
 Install libraries
 ```bash
 pip install -r requirements.txt
 ```
 
+Start Server
+```bash
+python server.py
+```
+
 Start client on pc
 ```bash
 python client.py <clientname>
 ```
-Open http://desktopcontrol.azurewebsites.net and enter clientname by which you started client and click connect and use
+Open controller/index.html and enter clientname by which you started client and click connect and use
+
+### To Control over Internet host server.py on cloud
