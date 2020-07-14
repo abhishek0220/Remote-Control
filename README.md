@@ -32,6 +32,6 @@ Start client on pc
 ```bash
 python client.py <clientname>
 ```
-Open controller/index.html and enter clientname by which you started client and click connect and use
+Open docs/index.html and enter clientname by which you started client and click connect and use
 
 ### To Control over Internet host server.py on cloud
