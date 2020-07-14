@@ -100,5 +100,5 @@ async def handler(url, client_id):
 
 if __name__ == '__main__':
     asyncio.get_event_loop().run_until_complete(
-        handler('ws://serverabhis.herokuapp.com/socket', sys.argv[1])
+        handler('ws://localhost:5000/socket', sys.argv[1])
     )
