@@ -34,4 +34,6 @@ python client.py <clientname>
 ```
 Open docs/index.html and enter clientname by which you started client and click connect and use
 
-### To Control over Internet host server.py on cloud
+### To Control over Internet host server.py on 
+
+This Project was made for HackJaipur Hackathon.
